@@ -195,7 +195,7 @@ struct sKhepera4 {
     struct sKhepera4Battery battery; //!< Battery information
 };
 
-struct sKhepera4 khepera4;
+extern struct sKhepera4 khepera4;
 
 typedef long long tTimestamp;
 
