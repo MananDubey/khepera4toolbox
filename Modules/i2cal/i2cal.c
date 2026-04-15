@@ -20,7 +20,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <unistd.h>
-#include <stropts.h>
+#include <sys/ioctl.h>
 
 struct sI2CAL i2cal;
 // I2C filehandle
