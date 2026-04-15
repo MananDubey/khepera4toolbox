@@ -37,14 +37,20 @@ int i2cal_open() {
         return 2;
     }
 
-    // Try to open
-    i2cal_fd = open("/dev/i2c-3", O_RDWR);
-    if (i2cal_fd < 0) {
-        printf("Fatal error: unable to open the I2C bus (/dev/i2c-3): res=%d\n", i2cal_fd);
-        exit(255);
-        //return 0;
+    // Get device from environment
+    const char *i2c_dev = getenv("KHEPERA_I2C");
+
+    // Default fallback
+    if (!i2c_dev) {
+        i2c_dev = "/dev/i2c-1";
     }
 
+    // Try to open
+    i2cal_fd = open(i2c_dev, O_RDWR);
+    if (i2cal_fd < 0) {
+        printf("Fatal error: unable to open the I2C bus (%s): res=%d\n", i2c_dev, i2cal_fd);
+        exit(255);
+    }
     return 1;
 }
 
