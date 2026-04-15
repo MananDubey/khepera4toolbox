@@ -12,8 +12,8 @@ STATICTARGET	:= $(TARGET)-static
 
 # Default toolchain (modern, recommended)
 # Toolchain (compiler, linker, ...) if you are using kernel 2.6 (korebot-oetools-1.0)
-CC ?= arm-linux-gnueabihf-gcc
-AR ?= arm-linux-gnueabihf-ar
+CC := arm-linux-gnueabihf-gcc
+AR := arm-linux-gnueabihf-ar
 
 # Very old kernel 2.4 toolchain (obsolete)
 # Toolchain (compiler, linker, ...) if you are using kernel 2.4 (korebot-tools-0.1.2)
