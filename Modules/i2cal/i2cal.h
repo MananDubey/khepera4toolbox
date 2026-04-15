@@ -40,7 +40,7 @@ struct sI2CAL {
     int read_buffer_nw;
 };
 
-struct sI2CAL i2cal;
+extern struct sI2CAL i2cal;
 
 // Initialization
 void i2cal_init();
