@@ -9,12 +9,13 @@ STATICTARGET	:= $(strip $(TARGET))-static
 ################## Toolchain Selection ##################
 # Activate one of the toolchains below by commenting out the corresponding lines.
 # Note that if you change the toolchain, you need to recompile all modules before recompiling all programs. The k3-make-all script will help you doing this.
+# Toolchain (compiler, linker, ...) if you are using kernel 2.6 (korebot-oetools-1.0)
+CC ?= arm-linux-gnueabihf-gcc
+AR ?= arm-linux-gnueabihf-ar
 
+# Very old kernel 2.4 toolchain (obsolete)
 # Toolchain (compiler, linker, ...) if you are using kernel 2.4 (korebot-tools-0.1.2)
 #CC			:= arm-linux-gcc
-
-# Toolchain (compiler, linker, ...) if you are using kernel 2.6 (korebot-oetools-1.0)
-CC			:= arm-angstrom-linux-gnueabi-gcc
 
 #########################################################
 
@@ -28,6 +29,7 @@ INCS		:= $(INCS_ADD)
 INCS		:= $(INCS) $(foreach MOD,$(MY_MODULES),-I $(MOD))
 INCS		:= $(INCS) $(foreach MOD,$(MODULES),-I $(K4_ROOT)/Modules/$(MOD))
 LIBS		:= -lm $(LIBS_ADD)
+CFLAGS_ADD  += -mcpu=cortex-a8 -mfpu=vfp -mfloat-abi=hard
 CFLAGS 		:= $(CFLAGS_ADD)
 
 $(TARGET): $(OBJS) $(MODS)
