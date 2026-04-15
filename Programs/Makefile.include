@@ -10,8 +10,8 @@ STATICTARGET	:= $(strip $(TARGET))-static
 # Activate one of the toolchains below by commenting out the corresponding lines.
 # Note that if you change the toolchain, you need to recompile all modules before recompiling all programs. The k3-make-all script will help you doing this.
 # Toolchain (compiler, linker, ...) if you are using kernel 2.6 (korebot-oetools-1.0)
-CC ?= arm-linux-gnueabihf-gcc
-AR ?= arm-linux-gnueabihf-ar
+CC := arm-linux-gnueabihf-gcc
+AR := arm-linux-gnueabihf-ar
 
 # Very old kernel 2.4 toolchain (obsolete)
 # Toolchain (compiler, linker, ...) if you are using kernel 2.4 (korebot-tools-0.1.2)
