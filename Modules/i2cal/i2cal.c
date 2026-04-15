@@ -22,6 +22,7 @@
 #include <unistd.h>
 #include <stropts.h>
 
+struct sI2CAL i2cal;
 // I2C filehandle
 int i2cal_fd = -1;
 
