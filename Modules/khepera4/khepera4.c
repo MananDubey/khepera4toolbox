@@ -21,7 +21,7 @@
 #include "khepera4.h"
 
 /*** Module Initialization ***/
-
+struct sKhepera4 khepera4;
 void khepera4_init() {
     // Initialize the i2cal module
     i2cal_init();
