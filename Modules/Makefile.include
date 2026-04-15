@@ -20,8 +20,6 @@ AR ?= arm-linux-gnueabihf-ar
 #CC			:= arm-linux-gcc
 #AR			:= arm-linux-ar
 
-CFLAGS_ADD += -mcpu=cortex-a8 -mfpu=vfp -mfloat-abi=hard
-
 #########################################################
 
 # Preparing files and flags
@@ -34,6 +32,7 @@ INCS		:= $(INCS_ADD)
 INCS		:= $(INCS) $(foreach MOD,$(MY_MODULES),-I $(MOD))
 INCS		:= $(INCS) $(foreach MOD,$(MODULES),-I $(K4_ROOT)/Modules/$(MOD))
 LIBS		:= -lm $(LIBS_ADD)
+CFLAGS_ADD  += -mcpu=cortex-a8 -mfpu=vfp -mfloat-abi=hard
 CFLAGS		:= $(CFLAGS_ADD)
 
 $(ARCHIVE): $(OBJS)
